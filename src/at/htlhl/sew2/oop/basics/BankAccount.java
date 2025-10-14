@@ -1,8 +1,24 @@
 package at.htlhl.sew2.oop.basics;
 
 public class BankAccount {
-    int number;
-    float balance;
+    private int number;
+    private float balance;
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(float balance) {
+        this.balance = balance;
+    }
 
     public void deposit(float amount) {
         balance += amount;
