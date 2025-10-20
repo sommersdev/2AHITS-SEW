@@ -4,6 +4,15 @@ public class BankAccount {
     private int number;
     private float balance;
 
+    public BankAccount() {
+
+    }
+
+    public BankAccount(int number, float balance) {
+        this.number = number;
+        this.balance = balance;
+    }
+
     public int getNumber() {
         return number;
     }
@@ -16,20 +25,28 @@ public class BankAccount {
         return balance;
     }
 
-    public void setBalance(float balance) {
-        this.balance = balance;
-    }
-
     public void deposit(float amount) {
-        balance += amount;
+        if (amount > 0) {
+            balance += amount;
+        } else {
+            System.out.println("deposit() nicht durchgeführt!");
+        }
     }
 
-    public void withdraw(float amount) {
-        balance -= amount;
+    public boolean withdraw(float amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            return true;
+        } else {
+            System.out.println("withdraw() nicht durchgeführt!");
+            return false;
+        }
     }
 
     public void transfer(BankAccount zielkonto, float amount) {
-        withdraw(amount);
-        zielkonto.deposit(amount);
+        boolean success = withdraw(amount);
+        if (success) {
+            zielkonto.deposit(amount);
+        }
     }
 }

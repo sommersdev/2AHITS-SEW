@@ -4,17 +4,13 @@ public class Main {
     static void main() {
         System.out.println("Basic OOP started ...");
 
-        BankAccount accOfGojko = new BankAccount();
-        accOfGojko.setNumber(123789);
-        accOfGojko.setBalance(10000f);
+        BankAccount accOfGojko = new BankAccount(123789, 10000f);
+        accOfGojko.deposit(220f);
+        System.out.println("Actual balance(Gojko): " + accOfGojko.getBalance());
 
-        BankAccount accOfFlorian = new BankAccount();
-        accOfFlorian.setNumber(456000);
-        accOfGojko.setBalance(0.10f);
+        BankAccount accOfFlorian = new BankAccount(456000, 0.10f);
 
-        accOfGojko.deposit(100f);
-
-        System.out.println("Actual balance: " + accOfGojko.getBalance());
         System.out.println("Actual balance(Florian): " + accOfFlorian.getBalance());
+
     }
 }
