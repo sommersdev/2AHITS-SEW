@@ -1,12 +1,8 @@
 package at.htlhl.sew2.oop.basics;
 
 public class BankAccount {
-    private int number;
+    private final int number;
     private float balance;
-
-    public BankAccount() {
-
-    }
 
     public BankAccount(int number, float balance) {
         this.number = number;
@@ -14,39 +10,34 @@ public class BankAccount {
     }
 
     public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
+        return this.number;
     }
 
     public float getBalance() {
-        return balance;
+        return this.balance;
     }
 
     public void deposit(float amount) {
         if (amount > 0) {
-            balance += amount;
+            this.balance += amount;
         } else {
-            System.out.println("deposit() nicht durchgeführt!");
+            System.out.println("deposit()  could not get executed because of an invalid amount!");
         }
     }
 
     public boolean withdraw(float amount) {
-        if (amount > 0 && amount <= balance) {
-            balance -= amount;
-            return true;
-        } else {
-            System.out.println("withdraw() nicht durchgeführt!");
+        if (amount <= 0 || amount > this.balance) {
+            System.out.println("withdraw() could not get executed because of insufficient funds or invalid amount!");
             return false;
         }
+        this.balance -= amount;
+        return true;
     }
 
-    public void transfer(BankAccount zielkonto, float amount) {
-        boolean success = withdraw(amount);
+    public void transfer(BankAccount target, float amount) {
+        boolean success = this.withdraw(amount);
         if (success) {
-            zielkonto.deposit(amount);
+            target.deposit(amount);
         }
     }
 }
