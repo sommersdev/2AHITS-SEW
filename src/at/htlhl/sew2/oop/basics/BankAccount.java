@@ -40,4 +40,25 @@ public class BankAccount {
             target.deposit(amount);
         }
     }
+
+    static void main() {
+        BankAccount ba1 = new BankAccount(1, 7f);
+        BankAccount ba2 = new BankAccount(2, 10f);
+        BankAccount ba3 = new BankAccount(3, -1f);
+        BankAccount ba4 = new BankAccount(4, 999f);
+        BankAccount ba5 = new BankAccount(5, -999f);
+        BankAccount[] accounts = {ba1, ba2, ba3, ba4, ba5};
+
+        BankAccount smallestAccount = accounts[0];
+        BankAccount highestAccount = accounts[0];
+
+        for (BankAccount account : accounts) {
+            if (account.getBalance() < smallestAccount.getBalance()) {
+                smallestAccount = account;
+            }
+            if (account.getBalance() > highestAccount.getBalance()) {
+                highestAccount = account;
+            }
+        }
+    }
 }
