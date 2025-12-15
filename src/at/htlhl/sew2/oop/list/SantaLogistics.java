@@ -41,6 +41,8 @@ public class SantaLogistics {
     }
 
     public static void sendMessageToSanta(ArrayList<Wish> approvedWishes) {
+        int numberOfWishes = approvedWishes.size();
+
         System.out.println("\n--------------------------------------------------------------------------------\n");
 
         System.out.println("Dear Santa,\n\n" +
