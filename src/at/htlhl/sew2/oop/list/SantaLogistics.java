@@ -84,7 +84,9 @@ public class SantaLogistics {
     public static ArrayList<Wish> approveOrDenyWishes(ArrayList<Wish> wishes) {
         ArrayList<Wish> approvedWishes = new ArrayList<Wish>();
         for (Wish wish : wishes) {
-            if (wish.getChild().isOver18OnChristmasEve() && wish.getChild().isNaughty()) {
+            boolean approved = wish.getChild().isOver18OnChristmasEve() && wish.getChild().isNaughty();
+            System.out.println(wish.getChild().getName() + "'s Wish is " + (approved ? "APPROVED" : "DENIED"));
+            if (approved) {
                 approvedWishes.add(wish);
             }
         }
