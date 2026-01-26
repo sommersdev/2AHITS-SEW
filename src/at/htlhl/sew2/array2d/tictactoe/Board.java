@@ -1,4 +1,4 @@
-package at.htlhl.sew2.array2d.ticktacktoe;
+package at.htlhl.sew2.array2d.tictactoe;
 
 public class Board {
     private Player[][] grid;

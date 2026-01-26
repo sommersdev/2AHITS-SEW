@@ -1,5 +1,5 @@
-import at.htlhl.sew2.array2d.ticktacktoe.Game;
-import at.htlhl.sew2.array2d.ticktacktoe.Player;
+import at.htlhl.sew2.array2d.tictactoe.Game;
+import at.htlhl.sew2.array2d.tictactoe.Player;
 
 void main() {
     Player[] players = new Player[2];
@@ -8,6 +8,4 @@ void main() {
 
     Game game = new Game(players);
     game.start();
-
-    boolean finished = false;
 }
